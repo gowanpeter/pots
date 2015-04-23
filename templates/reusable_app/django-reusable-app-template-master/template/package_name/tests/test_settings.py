@@ -66,3 +66,4 @@ COVERAGE_MODULE_EXCLUDES = [
 COVERAGE_MODULE_EXCLUDES += EXTERNAL_APPS
 
 SECRET_KEY = 'foobar'
+"""Settings that need to be set in order to run the tests."""

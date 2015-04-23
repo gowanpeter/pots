@@ -3,14 +3,15 @@ from django.shortcuts import render, render_to_response, RequestContext, get_obj
 #from somepots.forms import MyPieceForm, PieceModelForm, MyGlazeLookupForm, DocumentationForm, ConditionForm, ExhibitionLookupForm, HeathLineLookupForm, LogoForm, MakerLookupForm, MaterialLookupForm, MethodLookupForm, PublicationForm, SetCollectionForm, NameForm
 
 from somepots.forms import PieceModelForm, GlazeLookupModelForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView
 
 from django.forms.models import modelformset_factory
 
 from somepots.models import Piece
 
-
+def home_page(request):
+    return HttpResponse('<html><title>To-Do lists</title></html>')
 
 def PieceView(request):
 
