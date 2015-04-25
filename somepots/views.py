@@ -10,8 +10,12 @@ from django.forms.models import modelformset_factory
 
 from somepots.models import Piece
 
+#===========tests
 def home_page(request):
-    return HttpResponse('<html><title>To-Do lists</title></html>')
+    #return HttpResponse('<html><title>To-Do lists</title></html>')
+    return render(request, 'home.html')
+
+#============
 
 def PieceView(request):
 
