@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = patterns('',
-    #url(r'^index/(?P<piece_id>\w{0,50})/$', 'somepots.views.PieceView', name='piece'),
+    url(r'^piece$', 'somepots.views.PieceView', name='piece'),
     url(r'^glaze$', 'somepots.views.GlazeView', name='glaze'),
     url(r'^documentation$', 'somepots.views.DocumentationView', name='documentation',),
     url(r'^condition$', 'somepots.views.ConditionView', name='condition',),
@@ -30,4 +30,4 @@ urlpatterns = patterns('',
     #urlpatterns += static(settings.STATIC_URL,
                           #document_root=settings.STATIC_ROOT)
     #urlpatterns += static(settings.MEDIA_URL,
-                          #document_root=settings.MEDIA_ROOT)                    
+                          #document_root=settings.MEDIA_ROOT)

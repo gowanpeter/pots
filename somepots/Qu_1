@@ -1,0 +1,14 @@
+﻿SELECT 
+  somepots_glaze_link_piece."glazeLookup_id", 
+  somepots_glazelookup.glaze_name, 
+  somepots_piece.piece_name, 
+  somepots_piece.id, 
+  somepots_glaze_link_piece.id, 
+  somepots_glazelookup.id
+FROM 
+  public.somepots_glaze_link_piece, 
+  public.somepots_glazelookup, 
+  public.somepots_piece
+WHERE 
+  somepots_glaze_link_piece.piece_id = somepots_piece.id AND
+  somepots_glazelookup.id = somepots_glaze_link_piece."glazeLookup_id";

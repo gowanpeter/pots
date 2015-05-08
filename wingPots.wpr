@@ -1,0 +1,64 @@
+#!wing
+#!version=5.0
+##################################################################
+# Wing IDE project file                                          #
+##################################################################
+[project attributes]
+debug.launch-configs = (1,
+                        {'launch-20H4PNLIEQp1zg4E': ({},
+        {'buildcmd': ('project',
+                      None),
+         'env': ('project',
+                 [u'']),
+         'name': u'Launch manage.py',
+         'pyexec': ('project',
+                    u''),
+         'pypath': ('project',
+                    ''),
+         'pyrunargs': ('project',
+                       '-u'),
+         'runargs': u'runserver --noreload 8000',
+         'rundir': ('project',
+                    u'')}),
+                         'launch-ZHsTMBHYce1wUeSQ': ({},
+        {'buildcmd': ('project',
+                      None),
+         'env': ('project',
+                 [u'']),
+         'name': 'process Config',
+         'pyexec': ('project',
+                    u''),
+         'pypath': ('project',
+                    ''),
+         'pyrunargs': ('project',
+                       '-u'),
+         'runargs': u'',
+         'rundir': ('project',
+                    u'')})})
+proj.directory-list = [{'dirloc': loc('../../../.virtualenvs/envone/lib/python3.4/site-packages/django/http'),
+                        'excludes': (),
+                        'filter': u'*',
+                        'include_hidden': False,
+                        'recursive': True,
+                        'watch_for_changes': True},
+                       {'dirloc': loc('.'),
+                        'excludes': [u'db.sqlite3'],
+                        'filter': '*',
+                        'include_hidden': False,
+                        'recursive': True,
+                        'watch_for_changes': True}]
+proj.file-type = 'shared'
+proj.launch-config = {loc('manage.py'): ('custom',
+        (u'',
+         'launch-ZHsTMBHYce1wUeSQ')),
+                      loc('pots/urls.py'): ('custom',
+        (u'',
+         'launch-ZHsTMBHYce1wUeSQ')),
+                      loc('somepots/forms.py'): ('project',
+        (u'',
+         'launch-20H4PNLIEQp1zg4E')),
+                      loc('templates/kk.html'): ('project',
+        (u'',
+         'launch-20H4PNLIEQp1zg4E'))}
+proj.main-file = loc('pots/urls.py')
+testing.test-framework = {loc('manage.py'): ':internal djangotest'}

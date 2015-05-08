@@ -1,0 +1,12 @@
+python manage.py loadtestdata -v2 --overwrite-defaults --generate-fk -ALL somepots.Piece:20 somepots.GlazeLookup:8 somepots.glaze_link_piece:5
+
+--follow-m2m 10:10
+--generate-m2m 10:10
+
+python manage.py loadtestdata -v2 --overwrite-defaults  --generate-m2m 1:15 somepots.Piece:60 somepots.GlazeLookup:15 somepots.glaze_link_piece:2 somepots.Documentation:6 somepots.documentation_link_piece:2 somepots.ExhibitionLookup:1 somepots.exhibition_link_piece:1 somepots.HeathLineLookup:10 somepots.heath_line_link_piece:10 somepots.Logo:10 somepots.logo_link_piece:1 somepots.MakerLookup:10 somepots.maker_link_piece:1 somepots.MaterialLookup:3 somepots.material_link_piece:1 somepots.MethodLookup:4 somepots.method_link_piece:1 somepots.PublicationLookup:10 somepots.publication_link_piece:1 somepots.SetCollection:10 somepots.setCollection_link_piece:1
+
+python manage.py loadtestdata -v2 --overwrite-defaults  --generate-m2m 1:15  somepots.Piece:100 somepots.GlazeLookup:17 somepots.glaze_link_piece:0
+
+--follow-m2m 10:10
+--generate-m2m 1:1
+--generate-fk  -ALL

@@ -1,9 +1,7 @@
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 from django.db import models
 
-class Widget(models.Model):
-    name = models.CharField(max_length=12)
-    #next: forms.py
 
 class Piece(models.Model):
     post_edith = models.NullBooleanField()
@@ -60,7 +58,7 @@ class Condition(models.Model):
 
 #many to many
 class Documentation(models.Model):
-    documentation_name = models.CharField(max_length=8, blank=True)
+    documentation_name = models.CharField(max_length= 20, blank=True)
     documentation_pieces = models.ManyToManyField(Piece, through="documentation_link_piece")
 
     class Meta:
@@ -89,7 +87,7 @@ class documentation_link_piece(models.Model):
 #one exhibition has many pieces, foreign key is exibition_id and is in pieces
 #exhibition = models.ForeignKey('exhibition')
 class ExhibitionLookup(models.Model):
-    exhibition_name = models.CharField(max_length=8, blank=True)
+    exhibition_name = models.CharField(max_length= 20, blank=True)
     exhibition_date = models.DateField(blank=True, null=True)
     exhibition_description = models.CharField(max_length=12, blank=True)
 
@@ -111,13 +109,14 @@ class exhibition_link_piece(models.Model):
 
 class GlazeLookup(models.Model):
     glaze_name = models.CharField(max_length=8, blank= False, default = 'boola', unique = True)
+    slug = models.SlugField()
     glaze_pieces = models.ManyToManyField(Piece, through= 'glaze_link_piece', through_fields = ('glazeLookup', 'piece'))
     glaze_description = models.CharField(max_length=12, blank=True)
     glaze_begin_date = models.DateField(blank=True, null=True)
     glaze_end_date = models.DateField(blank=True, null=True)
 
-
-
+    def get_absolute_url(self):
+        return reverse("GlazeLookup:detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = "glaze"
@@ -140,7 +139,7 @@ class glaze_link_piece(models.Model):
 
 #many to many
 class HeathLineLookup(models.Model):
-    heath_line_name = models.CharField(max_length=8, blank=True)
+    heath_line_name = models.CharField(max_length= 20, blank=True)
     heath_line_pieces = models.ManyToManyField(Piece, through="heath_line_link_piece")
     heath_line_begin_date = models.DateField(blank=True, null=True)
     heath_line_end_date = models.DateField(blank=True, null=True)
@@ -184,14 +183,14 @@ class logo_link_piece(models.Model):
     Logo = models.ForeignKey(Logo)
     feature =  models.CharField(max_length=12, blank= False, default = 'too true')
 
-class Meta:
-    verbose_name = "logo link"
-    verbose_name_plural = "logo pieces"
+    class Meta:
+        verbose_name = "logo link"
+        verbose_name_plural = "logo pieces"
 
 
 #many to many
 class MakerLookup(models.Model):
-    maker_name = models.CharField(max_length=8, blank=True)
+    maker_name = models.CharField(max_length= 20, blank=True)
     maker_pieces = models.ManyToManyField(Piece, through="maker_link_piece")
     maker_location = models.CharField(max_length=8, blank=True)
     maker_start_date = models.DateField(blank=True, null=True)
@@ -220,7 +219,7 @@ class maker_link_piece(models.Model):
 
 #many to many
 class MaterialLookup(models.Model):
-    material_name = models.CharField(max_length=8, blank=True)
+    material_name = models.CharField(max_length= 16, blank=True)
     material_pieces = models.ManyToManyField(Piece, through="material_link_piece")
     material_description = models.CharField(max_length=12, blank=True)
 
@@ -246,7 +245,7 @@ class material_link_piece(models.Model):
 
 #many to many
 class MethodLookup(models.Model):
-    method_name = models.CharField(max_length=8, blank=True)
+    method_name = models.CharField(max_length= 12, blank=True)
     method_pieces = models.ManyToManyField(Piece, through="method_link_piece")
     method_description = models.CharField(max_length=12, blank=True)
 

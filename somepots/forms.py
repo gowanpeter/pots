@@ -20,7 +20,9 @@ class MyGlazeLookupForm(forms.Form):
 class GlazeLookupModelForm(ModelForm):
         class Meta:
                 model = GlazeLookup
-                fields ="__all__"
+                fields = "__all__"
+
+
 
 
 class DocumentationForm(forms.ModelForm):
